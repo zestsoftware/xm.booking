@@ -1,0 +1,12 @@
+/* Add notes and remove notes */
+
+.show-booking-form:click {
+    evt-click-preventdefault: true;
+    evt-click-allowbubbling: true;
+    action-server: xm_show_booking_form;
+    }
+
+#addbookingform:click {
+    action-server: xm_add_booking;
+    xm_add_booking-title: 'peroni';
+    }

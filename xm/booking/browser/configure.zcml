@@ -1,0 +1,51 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+
+  <!--  XXX - Get rid of the dependency on eXtremeManagement !!! -->
+  <browser:viewlet
+      name="xm.booking"
+      for="Products.eXtremeManagement.interfaces.xmtask.IXMTask"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      class=".viewlets.Bookings"
+      permission="zope2.View"
+      />
+
+  <browser:resource
+      file="bookings.kss"
+      name="bookings.kss"
+      />
+
+  <browser:page
+      name="addbookingform"
+      for="*"
+      template="add.pt"
+      permission="zope2.View"
+      /> <!--   Should be another permission -->
+
+  <browser:page
+      name="xm_show_booking_form"
+      for="*"
+      class=".add.Add"
+      attribute="show_booking_form"
+      permission="zope2.View"
+      /> <!--   Should be another permission -->
+
+  <browser:page
+      name="xm_add_booking"
+      for="*"
+      class=".add.Add"
+      attribute="add_booking"
+      permission="zope2.View"
+      /> <!--   Should be another permission -->
+
+  <browser:page
+      name="xm_add_booking_form"
+      for="*"
+      template="add.pt"
+      permission="zope2.View"
+      /> <!--   Should be another permission -->
+
+</configure>
+
