@@ -1,6 +1,7 @@
-<tal:block tal:define="view context/@@task;
-                       bookings view/bookings"
-           tal:condition="bookings">
+<div id="booking-table"
+     tal:define="view context/@@task;
+                 bookings view/bookings"
+     tal:condition="bookings">
   <h2 i18n:translate="heading-bookings">Time Bookings</h2>
 
   <table border="1"
@@ -43,4 +44,4 @@
       <td tal:content="booking/billable" />
     </tr>
   </table>
-</tal:block>
+</div>

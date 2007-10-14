@@ -16,7 +16,7 @@
       name="xm.add_booking_form"
       for="Products.eXtremeManagement.interfaces.xmtask.IXMTask"
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-      template="add.pt"
+      class=".viewlets.BookingForm"
       permission="zope2.View"
       />
 
