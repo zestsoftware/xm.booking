@@ -5,7 +5,7 @@
         method="post"
         id="addbookingform"
         action=""
-        tal:attributes="action string:${context/absolute_url}/@@addbooking">
+        tal:attributes="action string:${context/absolute_url}/@@xm_create_booking">
     <input name="title"
            value=""
            type="text"

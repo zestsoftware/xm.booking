@@ -1,5 +1,20 @@
 from kss.core import kssaction
 from plone.app.kss.plonekssview import PloneKSSView
+from Products.Five.browser import BrowserView
+
+
+class Create(BrowserView):
+    def __call__(self):
+        form = self.request.form
+        title = form.get('title', '')
+        hours = form.get('hours', 0)
+        minutes = form.get('minutes', 0)
+        idx =1            
+        while str(idx) in self.context.objectIds():
+            idx = idx + 1
+        self.context.invokeFactory('Booking', id=idx, title=title,
+                                   hours=hours, minutes=minutes)
+        self.request.response.redirect(self.context.absolute_url())
 
 
 class Add(PloneKSSView):

@@ -25,14 +25,7 @@
       name="bookings.kss"
       />
 
-  <browser:page
-      name="xm_show_booking_form"
-      for="*"
-      class=".add.Add"
-      attribute="show_booking_form"
-      permission="zope2.View"
-      /> <!--   Should be another permission -->
-
+  <!-- kss action for adding a booking -->
   <browser:page
       name="xm_add_booking"
       for="*"
@@ -41,12 +34,16 @@
       permission="zope2.View"
       /> <!--   Should be another permission -->
 
+  <!--  XXX - Get rid of the dependency on eXtremeManagement !!! -->
+  <!-- View for creating a booking -->
   <browser:page
-      name="xm_add_booking_form"
-      for="*"
-      template="add.pt"
+      name="xm_create_booking"
+      for="Products.eXtremeManagement.interfaces.xmtask.IXMTask"
+      class=".add.Create"
       permission="zope2.View"
       /> <!--   Should be another permission -->
+
+
 
 </configure>
 
