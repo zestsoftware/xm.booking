@@ -34,9 +34,9 @@ def test_suite():
         #    'README.txt', package='xm.booking',
         #    setUp=testing.setUp, tearDown=testing.tearDown),
 
-        #doctestunit.DocTestSuite(
-        #    module='xm.booking.mymodule',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
+        doctestunit.DocTestSuite(
+            module='xm.booking.browser.add',
+            setUp=testing.setUp, tearDown=testing.tearDown),
 
 
         # Integration tests that use PloneTestCase

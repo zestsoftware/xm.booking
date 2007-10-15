@@ -5,11 +5,96 @@ from viewlets import Bookings as BookingsViewlet
 from viewlets import BookingForm as BookingFormViewlet
 
 
-def create_booking(context, title='test 2', hours=0, minutes=0):
+def create_booking(context, title='Booking', hours=0, minutes=0):
+    """Create a booking.
+
+    We introduce a Mock Booking class for testing.
+
+    >>> class MockBooking(object):
+    ...     def __init__(self, **kwargs):
+    ...         for key, value in kwargs.items():
+    ...             self.__setattr__(key, value)
+
+    Let's try this.
+
+    >>> booking1 = MockBooking(id=42, blah='h2g2')
+    >>> booking1.id
+    42
+    >>> booking1.blah
+    'h2g2'
+    >>> booking1.title
+    Traceback (most recent call last):
+    ...
+    AttributeError: 'MockBooking' object has no attribute 'title'
+
+
+    For now Bookings are added in Tasks, so we create a Mock Task
+    class.
+
+    >>> class MockTask(object):
+    ...     def __init__(self):
+    ...         self.items = []
+    ...     def invokeFactory(self, type, **kwargs):
+    ...         if type != 'Booking':
+    ...             raise Exception('We want only Bookings.')
+    ...         self.items.append(MockBooking(**kwargs))
+    ...     def objectIds(self):
+    ...         return [x.id for x in self.items]
+    >>> context = MockTask()
+    >>> context.objectIds()
+    []
+    >>> context.invokeFactory('Solfatara')
+    Traceback (most recent call last):
+    ...
+    Exception: We want only Bookings.
+
+
+    XXX We may want to put these Mocks and their tests into another
+    class that we can use in other places as well.
+
+    Try a few stupid things.
+
+    >>> create_booking()
+    Traceback (most recent call last):
+    ...
+    TypeError: create_booking() takes at least 1 argument (0 given)
+    >>> create_booking(context, id='Peroni')
+    Traceback (most recent call last):
+    ...
+    TypeError: create_booking() got an unexpected keyword argument 'id'
+
+    Right, the basics seem to work.  Now we go and create some
+    Bookings with this function.  We have some defaults in place.
+
+    >>> create_booking(context)
+    >>> context.objectIds()
+    ['1']
+    >>> booking = context.items[0]
+    >>> booking.title
+    'Booking'
+    >>> booking.hours
+    0
+    >>> booking.minutes
+    0
+
+    Now add some non default values.
+
+    >>> create_booking(context, title='Buongiorno', hours=3, minutes=15)
+    >>> context.objectIds()
+    ['1', '2']
+    >>> booking = context.items[-1]
+    >>> booking.title
+    'Buongiorno'
+    >>> booking.hours
+    3
+    >>> booking.minutes
+    15
+
+    """
     idx = 1
     while str(idx) in context.objectIds():
         idx = idx + 1
-    context.invokeFactory('Booking', id=idx, title=title,
+    context.invokeFactory('Booking', id=str(idx), title=title,
                           hours=hours, minutes=minutes)
 
 
