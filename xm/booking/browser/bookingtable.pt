@@ -1,10 +1,16 @@
+<tal:comment replace="nothing">
+ We need to display *something* otherwise kss has no target to replace.
+</tal:comment>
 <div id="booking-table"
      tal:define="view context/@@task;
-                 bookings view/bookings"
-     tal:condition="bookings">
+                 bookings view/bookings">
   <h2 i18n:translate="heading-bookings">Time Bookings</h2>
 
-  <table border="1"
+  <p tal:condition="not:bookings">
+    No bookings yet
+  </p>
+  <table tal:condition="bookings"
+         border="1"
          class="listing xm-bookings"
          with="100%">
     <tr>
