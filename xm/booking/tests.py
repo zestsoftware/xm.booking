@@ -1,52 +1,46 @@
 import unittest
 
+from zope.testing import doctest
 from zope.testing import doctestunit
 from zope.component import testing
-from Testing import ZopeTestCase as ztc
 
 from Products.Five import zcml
 from Products.Five import fiveconfigure
 from Products.PloneTestCase import PloneTestCase as ptc
-from Products.PloneTestCase.layer import PloneSite
+from Products.PloneTestCase.layer import onsetup
+
+OPTIONFLAGS = (doctest.ELLIPSIS |
+               doctest.NORMALIZE_WHITESPACE)
+
+@onsetup
+def xm_setup():
+    """Set up our Plone Site.
+    """
+    fiveconfigure.debug_mode = True
+    import xm.booking
+    zcml.load_config('configure.zcml', xm.booking)
+    fiveconfigure.debug_mode = False
+
+xm_setup()
 ptc.setupPloneSite()
 
-import xm.booking
-
 class TestCase(ptc.PloneTestCase):
-    class layer(PloneSite):
-        @classmethod
-        def setUp(cls):
-            fiveconfigure.debug_mode = True
-            zcml.load_config('configure.zcml',
-                             xm.booking)
-            fiveconfigure.debug_mode = False
-
-        @classmethod
-        def tearDown(cls):
-            pass
+    """Base test case.
+    """
+    pass
     
 
 def test_suite():
     return unittest.TestSuite([
 
-        # Unit tests
-        #doctestunit.DocFileSuite(
-        #    'README.txt', package='xm.booking',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
         doctestunit.DocTestSuite(
             module='xm.booking.browser.add',
             setUp=testing.setUp, tearDown=testing.tearDown),
 
-
-        # Integration tests that use PloneTestCase
-        #ztc.ZopeDocFileSuite(
-        #    'README.txt', package='xm.booking',
-        #    test_class=TestCase),
-
-        #ztc.FunctionalDocFileSuite(
-        #    'browser.txt', package='xm.booking',
-        #    test_class=TestCase),
+        doctestunit.DocFileSuite(
+            'tests.txt',
+            optionflags=OPTIONFLAGS,
+            package='xm.booking.timing')
         
         ])
 
