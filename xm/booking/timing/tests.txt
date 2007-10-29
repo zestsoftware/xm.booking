@@ -12,9 +12,9 @@ Setup the test environment.
 >>> import Products.Five
 >>> from Products.Five import zcml
 >>> zcml.load_config('configure.zcml', Products.Five) 
->>> import Products.eXtremeManagement.timing
->>> zcml.load_config('configure.zcml', Products.eXtremeManagement.timing)
->>> from Products.eXtremeManagement.timing import IActualHours
+>>> import xm.booking.timing
+>>> zcml.load_config('configure.zcml', xm.booking.timing)
+>>> from xm.booking.timing import IActualHours
 
 Create a Booking.  We use a simple mock class for that.  We could take
 just a single float as input (1.5 hours), but we want it to work also
@@ -130,7 +130,7 @@ TypeError: ('Could not adapt', ...)
 
 The class has to implement the IActualHoursContainer interface.
 
->>> from Products.eXtremeManagement.timing.interfaces import IActualHoursContainer
+>>> from xm.booking.timing.interfaces import IActualHoursContainer
 >>> classImplements(ActualContainer, IActualHoursContainer)
 >>> actual = IActualHours(task)
 
@@ -204,7 +204,7 @@ Estimates
 
 We have to do exactly the same for estimates really.
 
->>> from Products.eXtremeManagement.timing import IEstimate
+>>> from xm.booking.timing import IEstimate
 >>> from Products.eXtremeManagement.interfaces import IXMTask
 >>> class MockEstimate(object):
 ...     def __init__(self, time):
@@ -220,7 +220,7 @@ Create a task.
 >>> estimate.estimate
 4.5
 
->>> from Products.eXtremeManagement.timing.interfaces import IEstimateContainer
+>>> from xm.booking.timing.interfaces import IEstimateContainer
 >>> class EstimateContainer(Container):
 ...     pass
 >>> classImplements(EstimateContainer, IEstimateContainer)
