@@ -23,7 +23,7 @@
  
   <subscriber
       for="Products.eXtremeManagement.interfaces.IXMTask
-           zope.app.event.interfaces.IObjectModifiedEvent"
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
       handler=".events.modifiedEstimate"
       />
 
