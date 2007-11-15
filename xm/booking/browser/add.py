@@ -1,3 +1,4 @@
+from Acquisition import aq_inner
 from kss.core import kssaction
 from plone.app.kss.plonekssview import PloneKSSView
 from Products.Five.browser import BrowserView
@@ -104,6 +105,7 @@ class Create(BrowserView):
         title = form.get('title', '')
         hours = form.get('hours', 0)
         minutes = form.get('minutes', 0)
+        context = aq_inner(self.context)
         create_booking(self.context, title=title, hours=hours, minutes=minutes)
         self.request.response.redirect(self.context.absolute_url())
 
@@ -112,19 +114,24 @@ class Add(PloneKSSView):
 
     @kssaction
     def add_booking(self, data):
-        create_booking(self.context, title=data.title,
+        # We *really* need the inner acquisition chain for context
+        # here.  Otherwise the aq_parent is the view instead of the
+        # story, which means the totals for the story are not
+        # recalculated.  Sneaky! :)
+        context = aq_inner(self.context)
+        create_booking(context, title=data.title,
                        hours=data.hours, minutes=data.minutes)
         core = self.getCommandSet('core')
 
         # Refresh the booking table
-        viewlet = BookingsViewlet(self.context, self.request, None, None)
+        viewlet = BookingsViewlet(context, self.request, None, None)
         viewlet.update()
         rendered = viewlet.render()
         selector = core.getHtmlIdSelector('booking-table')
         core.replaceHTML(selector, rendered)
 
         # Refresh the add booking form
-        viewlet = BookingFormViewlet(self.context, self.request, None, None)
+        viewlet = BookingFormViewlet(context, self.request, None, None)
         viewlet.update()
         rendered = viewlet.render()
         selector = core.getHtmlIdSelector('add-booking')
