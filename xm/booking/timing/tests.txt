@@ -112,8 +112,10 @@ It just needs an extra method contentValues, and reindexObject.
 ...         return self
 ...     def reindexObject(self, idxs=[]):
 ...         pass
+...     _quiet = True
 ...     def setModificationDate(self, date=None):
-...         pass
+...         if not self._quiet:
+...             print "modification date set"
 
 We are going to use the Container class as base for other containers
 later, so lets make a new class that inherits from this, to keep
@@ -199,6 +201,18 @@ And add another booking right there.
 >>> actual.recalc()
 >>> actual.actual_time
 7.75
+
+Modification date
+-----------------
+
+Upon a change, the modification date of all the items that (indirectly)
+contain the booking will be changed.
+
+>>> story._quiet = False
+>>> story.append(booking4)
+>>> actual.recalc()
+modification date set
+>>> story._quiet = True
 
 
 Estimates
