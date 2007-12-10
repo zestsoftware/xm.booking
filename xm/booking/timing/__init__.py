@@ -40,7 +40,9 @@ class ActualHoursContainer(object):
             if actual is not None:
                 total += actual.actual_time
         self.actual_time = total
-        context.reindexObject(idxs=['actual_time'])
+        context.setModificationDate()
+        context.reindexObject(idxs=['actual_time', 'modified',
+                                    'ModificationDate'])
 
 
 class EstimateContainer(ActualHoursContainer):
@@ -73,7 +75,9 @@ class EstimateContainer(ActualHoursContainer):
             if adapted is not None:
                 total += adapted.estimate
         self.estimate = total
-        context.reindexObject(idxs=['estimate'])
+        context.setModificationDate()
+        context.reindexObject(idxs=['estimate', 'modified',
+                                    'ModificationDate'])
 
 
 def actual(object, portal, **kw):
