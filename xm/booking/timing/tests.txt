@@ -11,7 +11,7 @@ Setup the test environment.
 
 >>> import Products.Five
 >>> from Products.Five import zcml
->>> zcml.load_config('configure.zcml', Products.Five) 
+>>> zcml.load_config('configure.zcml', Products.Five)
 >>> import xm.booking.timing
 >>> zcml.load_config('configure.zcml', xm.booking.timing)
 >>> from xm.booking.timing import IActualHours
@@ -111,6 +111,8 @@ It just needs an extra method contentValues, and reindexObject.
 ...     def contentValues(self):
 ...         return self
 ...     def reindexObject(self, idxs=[]):
+...         pass
+...     def setModificationDate(self, date=None):
 ...         pass
 
 We are going to use the Container class as base for other containers
@@ -344,4 +346,3 @@ We need to recalc the task first.
 >>> actual_story.recalc()
 >>> actual_story.actual_time
 1.25
-
