@@ -1,6 +1,8 @@
 from setuptools import setup, find_packages
+import os.path
 
-version = open('xm/booking/version.txt').read().strip()
+versionfile = os.path.join('xm', 'booking', 'version.txt')
+version = open(versionfile).read().strip()
 
 setup(name='xm.booking',
       version=version,
