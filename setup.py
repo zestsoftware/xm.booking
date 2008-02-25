@@ -12,7 +12,7 @@ readmefile.close()
 
 setup(name='xm.booking',
       version=version,
-      description="",
+      description="Bookings for eXtremeManagement",
       long_description=readme,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
@@ -25,7 +25,7 @@ setup(name='xm.booking',
       keywords='eXtremeManagement booking',
       author='Maurits van Rees',
       author_email='m.van.rees@zestsoftware.nl',
-      url="''",
+      url="http://plone.org/products/extreme-management-tool/",
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['xm'],
