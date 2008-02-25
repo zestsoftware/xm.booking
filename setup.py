@@ -5,7 +5,7 @@ versionfile = open(os.path.join('xm', 'booking', 'version.txt'))
 version = versionfile.read().strip()
 versionfile.close()
 
-readmefile = open(os.path.join('collective', 'editskinswitcher', 'README.txt'))
+readmefile = open(os.path.join('xm', 'booking', 'README.txt'))
 readme = readmefile.read().strip()
 readmefile.close()
 
