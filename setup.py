@@ -1,14 +1,19 @@
 from setuptools import setup, find_packages
 import os.path
 
-versionfile = os.path.join('xm', 'booking', 'version.txt')
-version = open(versionfile).read().strip()
+versionfile = open(os.path.join('xm', 'booking', 'version.txt'))
+version = versionfile.read().strip()
+versionfile.close()
+
+readmefile = open(os.path.join('collective', 'editskinswitcher', 'README.txt'))
+readme = readmefile.read().strip()
+readmefile.close()
+
 
 setup(name='xm.booking',
       version=version,
       description="",
-      long_description="""\
-""",
+      long_description=readme,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
