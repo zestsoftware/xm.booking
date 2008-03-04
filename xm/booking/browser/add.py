@@ -113,14 +113,15 @@ class Create(BrowserView):
 class Add(PloneKSSView):
 
     @kssaction
-    def add_booking(self, data):
+    def add_booking(self):
         # We *really* need the inner acquisition chain for context
         # here.  Otherwise the aq_parent is the view instead of the
         # story, which means the totals for the story are not
         # recalculated.  Sneaky! :)
         context = aq_inner(self.context)
-        create_booking(context, title=data.title,
-                       hours=data.hours, minutes=data.minutes)
+        create_booking(context, title=self.request.form.get('title'),
+                       hours=self.request.get('hours'),
+		       minutes=self.request.get('minutes'))
         core = self.getCommandSet('core')
 
         # Refresh the booking table
