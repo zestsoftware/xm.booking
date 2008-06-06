@@ -31,8 +31,8 @@
       for="*"
       class=".add.Add"
       attribute="add_booking"
-      permission="zope2.View"
-      /> <!--   Should be another permission -->
+      permission="xm.AddBooking"
+      />
 
   <!--  XXX - Get rid of the dependency on eXtremeManagement !!! -->
   <!-- View for creating a booking -->
@@ -40,7 +40,7 @@
       name="xm_create_booking"
       for="Products.eXtremeManagement.interfaces.xmtask.IXMTask"
       class=".add.Create"
-      permission="zope2.View"
+      permission="xm.AddBooking"
       /> <!--   Should be another permission -->
 
 

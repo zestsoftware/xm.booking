@@ -6,6 +6,9 @@
       package="xm.booking"
       initialize= ".initialize" />
 
+  <include package="Products.eXtremeManagement"
+           file="permissions.zcml"/>
+
   <include package=".browser" />
 
   <include package=".timing" />

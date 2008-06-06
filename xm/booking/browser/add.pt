@@ -1,10 +1,16 @@
 <div id="add-booking"
      i18n:domain="eXtremeManagement">
 
+  <span style="display:none"
+        tal:condition="not:view/allowed">
+    Not allowed to add a booking.
+  </span>
+
   <form name="add_booking"
         method="post"
         id="addbookingform"
         action=""
+        tal:condition="view/allowed"
         tal:attributes="action string:${context/absolute_url}/@@xm_create_booking">
     <input name="title"
            value=""
