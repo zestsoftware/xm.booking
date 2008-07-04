@@ -1,5 +1,5 @@
 <tal:comment replace="nothing">
- We need to display *something* otherwise kss has no target to replace.
+  We need to display *something* otherwise kss has no target to replace.
 </tal:comment>
 <div id="booking-table"
      tal:define="view context/@@task;
@@ -45,7 +45,9 @@
       <td tal:content="booking/actual" />
       <td>
         <img tal:replace="structure context/user.gif" />
-        <span tal:replace="python:context.poi_niceName(booking['creator'])">Assignee</span>
+        <span tal:replace="python:context.poi_niceName(booking['creator'])">
+          Assignee
+        </span>
       </td>
       <td tal:content="booking/billable" />
     </tr>
