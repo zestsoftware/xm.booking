@@ -6,7 +6,7 @@ from zope.component import testing
 
 OPTIONFLAGS = (doctest.ELLIPSIS |
                doctest.NORMALIZE_WHITESPACE)
-    
+
 
 def test_suite():
     return unittest.TestSuite([
@@ -18,8 +18,8 @@ def test_suite():
         doctestunit.DocFileSuite(
             'tests.txt',
             optionflags=OPTIONFLAGS,
-            package='xm.booking.timing')
-        
+            package='xm.booking.timing'),
+
         ])
 
 if __name__ == '__main__':
