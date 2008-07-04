@@ -1,3 +1,5 @@
+import logging
+
 from zope.interface import implements
 from zope.annotation.interfaces import IAnnotations
 from persistent.dict import PersistentDict
@@ -5,6 +7,9 @@ from Products.CMFPlone import CatalogTool as catalogtool
 from interfaces import IActualHours
 from interfaces import IEstimate
 from interfaces import ISizeEstimate
+
+
+logger = logging.getLogger('bookings')
 
 
 class ActualHoursContainer(object):
@@ -34,8 +39,10 @@ class ActualHoursContainer(object):
         """Recalculate the total booked hours for this container.
         """
         context = self.context
+        #logger.info("XXXRecalcing for %s", context)
         total = 0.0
         for obj in context.contentValues():
+            #logger.info("XXXWaking up %s", obj)
             actual = IActualHours(obj, None)
             if actual is not None:
                 total += actual.actual_time
