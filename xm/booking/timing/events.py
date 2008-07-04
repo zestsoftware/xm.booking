@@ -85,14 +85,14 @@ def addedActualHours(object, event):
 
     - newParent is the new parent Task
 
-    
+
     When removing a Booking:
     ------------------------
 
     - oldParent is the old parent Task
 
     - newParent is None
-    
+
 
     Moving a parent
     ---------------
