@@ -100,6 +100,7 @@ def create_booking(context, title='Booking', hours=0, minutes=0):
 
 
 class Create(BrowserView):
+
     def __call__(self):
         form = self.request.form
         title = form.get('title', '')
@@ -121,7 +122,7 @@ class Add(PloneKSSView):
         context = aq_inner(self.context)
         create_booking(context, title=self.request.form.get('title'),
                        hours=self.request.get('hours'),
-		       minutes=self.request.get('minutes'))
+                       minutes=self.request.get('minutes'))
         core = self.getCommandSet('core')
 
         # Refresh the booking table
@@ -137,4 +138,3 @@ class Add(PloneKSSView):
         rendered = viewlet.render()
         selector = core.getHtmlIdSelector('add-booking')
         core.replaceHTML(selector, rendered)
-
