@@ -43,7 +43,6 @@
       <option value="45">45</option>
     </select>
 
-           
     <input value="Add booking"
            id="submit-booking"
            i18n:attributes="value label_add_booking;"
