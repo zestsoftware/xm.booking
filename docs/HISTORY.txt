@@ -4,6 +4,12 @@ Changelog for xm.booking
 (name of developer listed in brackets)
 
 
+xm.booking - 0.7 (unreleased)
+-----------------------------
+
+- nothing yet
+
+
 xm.booking - 0.6 (31 July 2008)
 -------------------------------
 
