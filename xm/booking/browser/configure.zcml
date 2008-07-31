@@ -17,6 +17,7 @@
       for="Products.eXtremeManagement.interfaces.xmtask.IXMTask"
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
       class=".viewlets.BookingForm"
+      allowed_interface="xm.booking.browser.viewlets.BookingFormInterface"
       permission="zope2.View"
       />
 

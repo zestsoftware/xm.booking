@@ -7,7 +7,7 @@ Changelog for xm.booking
 xm.booking - 0.5.2 (unreleased)
 -------------------------------
 
-- nothing yet
+- Fixed UnAuthorized error when adding a booking via KSS.  [maurits]
 
 
 xm.booking - 0.5.1 (31 July 2008)
