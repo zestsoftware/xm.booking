@@ -4,13 +4,15 @@ Changelog for xm.booking
 (name of developer listed in brackets)
 
 
-xm.booking - 0.7 (unreleased)
+xm.booking - 0.6 (unreleased)
 -----------------------------
 
-- nothing yet
+- Fixed UnAuthorized error when adding a booking via KSS.
+  Merged from branch 0.5 (r69306).
+  [maurits]
 
 
-xm.booking - 0.6 (31 July 2008)
+xm.booking - 0.5 (31 July 2008)
 -------------------------------
 
 - Used the xm.AddBooking permission to see if the add booking viewlets
