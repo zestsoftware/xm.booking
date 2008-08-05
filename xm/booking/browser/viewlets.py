@@ -23,6 +23,12 @@ class Bookings(ViewletBase):
 class BookingForm(ViewletBase):
     implements(BookingFormInterface)
 
+    # Apparently this is needed to give access to the 'allowed'
+    # attribute in case this viewlet gets rendered within a KSS view
+    # (while adding a booking using this form), which messes up the
+    # Acquisition chain or something...
+    __allow_access_to_unprotected_subobjects__ = 1 
+
     def allowed(self):
         """Is the user allowed to add a booking here?
         """
