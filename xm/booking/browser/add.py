@@ -107,8 +107,8 @@ class Create(BrowserView):
         hours = form.get('hours', 0)
         minutes = form.get('minutes', 0)
         context = aq_inner(self.context)
-        create_booking(self.context, title=title, hours=hours, minutes=minutes)
-        self.request.response.redirect(self.context.absolute_url())
+        create_booking(context, title=title, hours=hours, minutes=minutes)
+        self.request.response.redirect(context.absolute_url())
 
 
 class Add(PloneKSSView):
