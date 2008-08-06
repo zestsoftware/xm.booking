@@ -1,7 +1,1 @@
-xm.booking Package Readme
-=========================
-
-Overview
---------
-
-
+See xm/booking/README.txt.
