@@ -16,7 +16,7 @@ historyfile.close()
 setup(name='xm.booking',
       version=version,
       description="Bookings for eXtremeManagement",
-      long_description= readme + "\n" + history,
+      long_description= readme + "\n\n" + history,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
