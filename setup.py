@@ -9,11 +9,14 @@ readmefile = open(os.path.join('xm', 'booking', 'README.txt'))
 readme = readmefile.read().strip()
 readmefile.close()
 
+historyfile = open(os.path.join('xm', 'booking', 'HISTORY.txt'))
+history = historyfile.read().strip()
+historyfile.close()
 
 setup(name='xm.booking',
       version=version,
       description="Bookings for eXtremeManagement",
-      long_description=readme,
+      long_description= readme + "\n\n" + history,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
