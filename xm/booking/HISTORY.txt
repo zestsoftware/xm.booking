@@ -4,7 +4,7 @@ History of xm.booking
 0.6 (unreleased)
 ------------------
 
-- nothing yet
+- Added optional argument 'description' to create_booking.  [maurits]
 
 
 0.5 (2008-03-04)

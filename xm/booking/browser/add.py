@@ -6,7 +6,8 @@ from viewlets import Bookings as BookingsViewlet
 from viewlets import BookingForm as BookingFormViewlet
 
 
-def create_booking(context, title='Booking', hours=0, minutes=0):
+def create_booking(context, title='Booking', hours=0, minutes=0,
+                   description=u''):
     """Create a booking.
 
     We introduce a Mock Booking class for testing.
@@ -96,7 +97,8 @@ def create_booking(context, title='Booking', hours=0, minutes=0):
     while str(idx) in context.objectIds():
         idx = idx + 1
     context.invokeFactory('Booking', id=str(idx), title=title,
-                          hours=hours, minutes=minutes)
+                          hours=hours, minutes=minutes,
+                          description=description)
 
 
 class Create(BrowserView):
