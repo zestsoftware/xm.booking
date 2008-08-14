@@ -2,7 +2,7 @@
 
 /* BBB From Plone 3.1 onwards you can just do:
 
-    action-server: xm_add_booking form();
+    action-server: xm_add_booking currentForm();
 */
 #submit-booking:click {
     evt-click-preventdefault: true;
