@@ -92,6 +92,16 @@ def create_booking(context, title='Booking', hours=0, minutes=0,
     >>> booking.minutes
     15
 
+    By default the description is empty, but optionally we can supply
+    one.
+
+    >>> booking.description
+    u''
+    >>> create_booking(context, title='Title', description=u'A description.')
+    >>> booking = context.items[-1]
+    >>> booking.description
+    u'A description.'
+
     """
     idx = 1
     while str(idx) in context.objectIds():
