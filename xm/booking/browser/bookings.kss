@@ -1,5 +1,9 @@
 /* Add notes and remove notes */
 
+/* BBB From Plone 3.1 onwards you can just do:
+
+    action-server: xm_add_booking form();
+*/
 #submit-booking:click {
     evt-click-preventdefault: true;
     evt-click-allowbubbling: true;
