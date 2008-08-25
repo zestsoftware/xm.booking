@@ -4,10 +4,12 @@ from plone.app.kss.plonekssview import PloneKSSView
 from Products.Five.browser import BrowserView
 from viewlets import Bookings as BookingsViewlet
 from viewlets import BookingForm as BookingFormViewlet
+from DateTime import DateTime
 
 
 def create_booking(context, title='Booking', hours=0, minutes=0,
-                   description=u''):
+                   description=u'',
+                   day=DateTime()):
     """Create a booking.
 
     We introduce a Mock Booking class for testing.
@@ -108,7 +110,8 @@ def create_booking(context, title='Booking', hours=0, minutes=0,
         idx = idx + 1
     context.invokeFactory('Booking', id=str(idx), title=title,
                           hours=hours, minutes=minutes,
-                          description=description)
+                          description=description,
+                          bookingDate=day)
 
 
 class Create(BrowserView):
