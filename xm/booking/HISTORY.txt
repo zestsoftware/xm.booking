@@ -6,6 +6,9 @@ History of xm.booking
 
 - Added optional argument 'description' to create_booking.  [maurits]
 
+- Showing booking's description as 'structure' as it is handled as
+  webintelligent text in Products.eXtremeManagement's views now. [reinout]
+
 
 0.5 (2008-03-04)
 ----------------
