@@ -4,7 +4,10 @@ History of xm.booking
 0.7 (unreleased)
 ----------------
 
-- Nothing yet.
+- Fixed error where a day=DateTime() default argument in a method defintion
+  would get stuck with the DateTime() of the moment when the site was last
+  started, sigh. KSS-added bookings all got that date. Fixes
+  http://plone.org/products/extreme-management-tool/issues/80. [reinout]
 
 
 0.6 (2008-09-16)

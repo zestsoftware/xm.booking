@@ -9,7 +9,7 @@ from DateTime import DateTime
 
 def create_booking(context, title='Booking', hours=0, minutes=0,
                    description=u'',
-                   day=DateTime()):
+                   day=None):
     """Create a booking.
 
     We introduce a Mock Booking class for testing.
@@ -104,7 +104,21 @@ def create_booking(context, title='Booking', hours=0, minutes=0,
     >>> booking.description
     u'A description.'
 
+    We can supply a day on which to book. The default is today. Note that
+    below checks will fail when executed at exactly midnight... ;-)
+
+    >>> today = str(DateTime())[:10]
+    >>> str(booking.bookingDate)[:10] == today
+    True
+    >>> create_booking(context, title='Title', day=DateTime('1972-12-25'))
+    >>> booking = context.items[-1]
+    >>> booking.bookingDate
+    DateTime('1972/12/25')
+
     """
+
+    if day == None:
+        day = DateTime()
     idx = 1
     while str(idx) in context.objectIds():
         idx = idx + 1
