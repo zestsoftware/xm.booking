@@ -1,7 +1,7 @@
 History of xm.booking
 =====================
 
-0.7 (unreleased)
+0.7 (2008-10-06)
 ----------------
 
 - Fixed error where a day=DateTime() default argument in a method defintion
