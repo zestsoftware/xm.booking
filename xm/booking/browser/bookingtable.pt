@@ -10,7 +10,6 @@
     No bookings yet
   </p>
   <table tal:condition="bookings"
-         border="1"
          class="listing xm-bookings"
          with="100%">
     <tr>
