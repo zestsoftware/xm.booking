@@ -11,7 +11,7 @@
   </p>
   <table tal:condition="bookings"
          class="listing xm-bookings"
-         with="100%">
+         >
     <tr>
       <th i18n:translate="listingheader-bookingdate">
         Date
