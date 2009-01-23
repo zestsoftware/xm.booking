@@ -2,9 +2,10 @@
   We need to display *something* otherwise kss has no target to replace.
 </tal:comment>
 <div id="booking-table"
+     i18n:domain="eXtremeManagement"
      tal:define="view context/@@task;
                  bookings view/bookings">
-  <h2 i18n:translate="heading-bookings">Time Bookings</h2>
+  <h2 i18n:translate="head_bookings">Bookings</h2>
 
   <p tal:condition="not:bookings">
     No bookings yet
@@ -13,19 +14,19 @@
          class="listing xm-bookings"
          >
     <tr>
-      <th i18n:translate="listingheader-bookingdate">
+      <th i18n:translate="head_bookingdate">
         Date
       </th>
-      <th i18n:translate="listingheader-booking">
-        Booking
+      <th i18n:translate="head_description">
+        Description
       </th>
-      <th i18n:translate="listingheader-time">
+      <th i18n:translate="head_time">
         Time
       </th>
-      <th i18n:translate="listingheader-booked-by">
-        Booked by
+      <th i18n:translate="head_by">
+        By
       </th>
-      <th i18n:translate="listingheader-billable">
+      <th i18n:translate="head_billable">
         Billable
       </th>
     </tr>
