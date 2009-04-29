@@ -4,7 +4,8 @@ History of xm.booking
 0.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Protect the booking table with the eXtremeManagement: View Details
+  permission.  [maurits+mike]
 
 
 0.8 (2009-01-07)

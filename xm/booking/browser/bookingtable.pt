@@ -4,7 +4,10 @@
 <div id="booking-table"
      i18n:domain="eXtremeManagement"
      tal:define="view context/@@task;
-                 bookings view/bookings">
+                 bookings view/bookings;
+                 tools context/@@plone_tools;
+                 mtool tools/membership;"
+     tal:condition="python:mtool.checkPermission('eXtremeManagement: View Details', context)">
   <h2 i18n:translate="head_bookings">Bookings</h2>
 
   <p tal:condition="not:bookings">
