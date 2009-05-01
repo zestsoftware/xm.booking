@@ -1,13 +1,7 @@
 History of xm.booking
 =====================
 
-1.1 (unreleased)
-----------------
-
-- Nothing changed yet.
-
-
-1.0 (2009-05-01)
+1.0 (unreleased)
 ----------------
 
 - Protect the booking table with the eXtremeManagement: View Details
