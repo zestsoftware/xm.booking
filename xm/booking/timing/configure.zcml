@@ -9,7 +9,7 @@
            zope.app.container.interfaces.IObjectMovedEvent"
       handler=".events.addedActualHours"
       />
-  
+
   <subscriber
       for=".interfaces.IEstimateContainer
            zope.app.container.interfaces.IObjectMovedEvent"
@@ -25,7 +25,7 @@
       factory=".ActualHoursContainer"
       />
 
-  
+
   <!-- Say which factory can be used to adapt which interface to
        IEstimate. -->
 

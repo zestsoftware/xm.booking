@@ -14,20 +14,20 @@
            zope.app.container.interfaces.IObjectMovedEvent"
       handler=".events.addedEstimate"
       />
-  
+
   <subscriber
       for="Products.eXtremeManagement.interfaces.IXMTask
            zope.app.container.interfaces.IObjectMovedEvent"
       handler=".events.addedEstimate"
       />
- 
+
   <subscriber
       for="Products.eXtremeManagement.interfaces.IXMTask
            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
       handler=".events.modifiedEstimate"
       />
 
- 
+
   <!-- Say which of our content types should be enhanced with
        duration estimates. -->
 
