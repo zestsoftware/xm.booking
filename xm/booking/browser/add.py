@@ -18,6 +18,8 @@ def create_booking(context, title='Booking', hours=0, minutes=0,
     ...     def __init__(self, **kwargs):
     ...         for key, value in kwargs.items():
     ...             self.__setattr__(key, value)
+    ...     def unmarkCreationFlag(self):
+    ...         pass
 
     Let's try this.
 
@@ -37,13 +39,19 @@ def create_booking(context, title='Booking', hours=0, minutes=0,
 
     >>> class MockTask(object):
     ...     def __init__(self):
-    ...         self.items = []
+    ...         self.items = {}
+    ...         self.next_id = 1
     ...     def invokeFactory(self, type, **kwargs):
     ...         if type != 'Booking':
     ...             raise Exception('We want only Bookings.')
-    ...         self.items.append(MockBooking(**kwargs))
+    ...         booking_id = str(self.next_id)
+    ...         self.next_id += 1
+    ...         self.items[booking_id] = MockBooking(**kwargs)
+    ...         return booking_id
     ...     def objectIds(self):
-    ...         return [x.id for x in self.items]
+    ...         return self.items.keys()
+    ...     def get(self, id):
+    ...         return self.items.get(id)
     >>> context = MockTask()
     >>> context.objectIds()
     []
@@ -73,7 +81,7 @@ def create_booking(context, title='Booking', hours=0, minutes=0,
     >>> create_booking(context)
     >>> context.objectIds()
     ['1']
-    >>> booking = context.items[0]
+    >>> booking = context.get('1')
     >>> booking.title
     'Booking'
     >>> booking.hours
@@ -86,7 +94,7 @@ def create_booking(context, title='Booking', hours=0, minutes=0,
     >>> create_booking(context, title='Buongiorno', hours=3, minutes=15)
     >>> context.objectIds()
     ['1', '2']
-    >>> booking = context.items[-1]
+    >>> booking = context.get('2')
     >>> booking.title
     'Buongiorno'
     >>> booking.hours
@@ -100,7 +108,7 @@ def create_booking(context, title='Booking', hours=0, minutes=0,
     >>> booking.description
     u''
     >>> create_booking(context, title='Title', description=u'A description.')
-    >>> booking = context.items[-1]
+    >>> booking = context.get('3')
     >>> booking.description
     u'A description.'
 
@@ -111,7 +119,7 @@ def create_booking(context, title='Booking', hours=0, minutes=0,
     >>> str(booking.bookingDate)[:10] == today
     True
     >>> create_booking(context, title='Title', day=DateTime('1972-12-25'))
-    >>> booking = context.items[-1]
+    >>> booking = context.get('4')
     >>> booking.bookingDate
     DateTime('1972/12/25')
 
@@ -122,10 +130,14 @@ def create_booking(context, title='Booking', hours=0, minutes=0,
     idx = 1
     while str(idx) in context.objectIds():
         idx = idx + 1
-    context.invokeFactory('Booking', id=str(idx), title=title,
-                          hours=hours, minutes=minutes,
-                          description=description,
-                          bookingDate=day)
+    # Add the booking and get the generated id, as theoretically this
+    # might differ from what we ask.
+    booking_id = context.invokeFactory(
+        'Booking', id=str(idx), title=title,
+        hours=hours, minutes=minutes,
+        description=description, bookingDate=day)
+    obj = context.get(booking_id)
+    obj.unmarkCreationFlag()
 
 
 class Create(BrowserView):

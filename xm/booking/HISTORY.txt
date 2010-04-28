@@ -4,6 +4,11 @@ History of xm.booking
 1.0 (2009-05-05)
 ----------------
 
+- Avoid renaming bookings that were added via the tracker at the
+  moment you edit them.
+  Fixes http://plone.org/products/extreme-management-tool/issues/184
+  [maurits]
+
 - Protect the booking table with the eXtremeManagement: View Details
   permission.  [maurits+mike]
 
