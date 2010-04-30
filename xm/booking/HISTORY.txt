@@ -1,7 +1,7 @@
 History of xm.booking
 =====================
 
-1.0 (2009-05-05)
+1.0 (2010-05-01)
 ----------------
 
 - Avoid renaming bookings that were added via the tracker at the
