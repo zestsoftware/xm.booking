@@ -15,6 +15,10 @@ History of xm.booking
   Fixes http://plone.org/products/extreme-management-tool/issues/184
   [maurits]
 
+
+1.0 (2009-05-05)
+----------------
+
 - Protect the booking table with the eXtremeManagement: View Details
   permission.  [maurits+mike]
 
