@@ -4,6 +4,9 @@ History of xm.booking
 2.0 (unreleased)
 ----------------
 
+- Added z3c.autoinclude.plugin target plone.
+  [maurits]
+
 - Use plone.indexer instead of the deprecated
   registerIndexableAttribute which no longer works in Plone 4.  Added
   dependency on plone.indexer for this, so using Plone 3.3 is
