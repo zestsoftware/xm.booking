@@ -1,7 +1,7 @@
 History of xm.booking
 =====================
 
-1.2 (unreleased)
+2.0 (unreleased)
 ----------------
 
 - Use plone.indexer instead of the deprecated
