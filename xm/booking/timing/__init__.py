@@ -3,10 +3,8 @@ import logging
 from zope.interface import implements
 from zope.annotation.interfaces import IAnnotations
 from persistent.dict import PersistentDict
-from Products.CMFPlone import CatalogTool as catalogtool
 from interfaces import IActualHours
 from interfaces import IEstimate
-from interfaces import ISizeEstimate
 
 
 logger = logging.getLogger('bookings')
@@ -85,29 +83,3 @@ class EstimateContainer(ActualHoursContainer):
         context.setModificationDate()
         context.reindexObject(idxs=['estimate', 'modified',
                                     'ModificationDate'])
-
-
-def actual(object, portal, **kw):
-    adapted = IActualHours(object, None)
-    if adapted is not None:
-        return adapted.actual_time
-    return None
-
-
-def duration_estimate(object, portal, **kw):
-    adapted = IEstimate(object, None)
-    if adapted is not None:
-        return adapted.estimate
-    return None
-
-
-def size_estimate(object, portal, **kw):
-    adapted = ISizeEstimate(object, None)
-    if adapted is not None:
-        return adapted.size_estimate
-    return None
-
-
-catalogtool.registerIndexableAttribute('actual_time', actual)
-catalogtool.registerIndexableAttribute('estimate', duration_estimate)
-catalogtool.registerIndexableAttribute('size_estimate', size_estimate)

@@ -36,7 +36,7 @@ setup(name='xm.booking',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
+          'plone.indexer',
       ],
       entry_points="""
       # -*- Entry points: -*-

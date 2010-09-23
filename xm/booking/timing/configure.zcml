@@ -35,4 +35,12 @@
       factory=".EstimateContainer"
       />
 
+  <!-- Indexers for plone.indexer -->
+  <include package="plone.indexer" />
+  <adapter factory='.indexers.actual_container' name='actual_time' />
+  <adapter factory='.indexers.duration_estimate_container' name='estimate' />
+  <adapter factory='.indexers.actual' name='actual_time' />
+  <adapter factory='.indexers.duration_estimate' name='estimate' />
+  <adapter factory='.indexers.size_estimate' name='size_estimate' />
+
 </configure>
