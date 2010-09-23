@@ -4,6 +4,11 @@ History of xm.booking
 2.0 (unreleased)
 ----------------
 
+- Explicitly load the permissions.zcml file from
+  Products.eXtremeManagement, otherwise you might get a
+  ComponentLookupError on zope startup.
+  [maurits]
+
 - Added z3c.autoinclude.plugin target plone.
   [maurits]
 

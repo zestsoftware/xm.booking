@@ -2,8 +2,9 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser">
 
-
-  <!--  XXX - Get rid of the dependency on eXtremeManagement !!! -->
+  <!-- Note: we may want to get rid of the dependency on
+       eXtremeManagement some day. -->
+  <include package="Products.eXtremeManagement"  file="permissions.zcml" />
   <browser:viewlet
       name="xm.bookinglist"
       for="Products.eXtremeManagement.interfaces.xmtask.IXMTask"
@@ -35,7 +36,6 @@
       permission="xm.AddBooking"
       />
 
-  <!--  XXX - Get rid of the dependency on eXtremeManagement !!! -->
   <!-- View for creating a booking -->
   <browser:page
       name="xm_create_booking"
