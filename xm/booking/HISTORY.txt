@@ -1,7 +1,7 @@
 History of xm.booking
 =====================
 
-2.0 (unreleased)
+2.0 (2010-09-24)
 ----------------
 
 - Made booking table compatible with both Plone 3 and 4, by using
