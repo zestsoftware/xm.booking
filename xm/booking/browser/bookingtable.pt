@@ -6,7 +6,9 @@
      tal:define="view context/@@task;
                  bookings view/bookings;
                  tools context/@@plone_tools;
-                 mtool tools/membership;"
+                 mtool tools/membership;
+                 poi_niceName nocall:context/poi_niceName|nothing;
+                 pas_member context/@@pas_member|nothing;"
      tal:condition="python:mtool.checkPermission('eXtremeManagement: View Details', context)">
   <h2 i18n:translate="head_bookings">Bookings</h2>
 
@@ -48,9 +50,11 @@
       <td tal:content="booking/actual" />
       <td>
         <img tal:replace="structure context/user.gif" />
-        <span tal:replace="python:context.poi_niceName(booking['creator'])">
-          Assignee
-        </span>
+        <tal:assignee
+            define="creator booking/creator;
+                    assignee python:poi_niceName and poi_niceName(creator);
+                    assignee python:assignee or pas_member.info(creator)['name_or_id']"
+            content="assignee" />
       </td>
       <td tal:content="booking/billable" />
     </tr>

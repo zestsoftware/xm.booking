@@ -4,6 +4,10 @@ History of xm.booking
 2.0 (unreleased)
 ----------------
 
+- Made booking table compatible with both Plone 3 and 4, by using
+  either poi_niceName (Plone 3, Poi 1.2) or @@pas_member (Plone4).
+  [maurits]
+
 - Explicitly load the permissions.zcml file from
   Products.eXtremeManagement, otherwise you might get a
   ComponentLookupError on zope startup.
