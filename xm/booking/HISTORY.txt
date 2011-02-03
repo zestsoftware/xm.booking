@@ -1,7 +1,7 @@
 History of xm.booking
 =====================
 
-2.1 (unreleased)
+2.1 (2011-02-03)
 ----------------
 
 - Added missing return statement in the size_estimate indexer.
