@@ -4,7 +4,9 @@ History of xm.booking
 2.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added missing return statement in the size_estimate indexer.
+  You may want to reindex the size_estimate index.
+  [maurits]
 
 
 2.0 (2010-09-24)
