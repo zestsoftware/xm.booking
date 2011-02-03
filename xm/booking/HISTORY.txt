@@ -11,7 +11,7 @@ History of xm.booking
 ----------------
 
 - Added missing return statement in the size_estimate indexer.
-  You may want to reindex the size_estimate index.
+  You may want to recatalog the Stories to fix their size_estimate.
   [maurits]
 
 
