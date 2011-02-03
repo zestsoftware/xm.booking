@@ -41,4 +41,4 @@ def duration_estimate(object):
 
 @indexer(ISizeEstimate)
 def size_estimate(object):
-    object.size_estimate
+    return object.size_estimate
