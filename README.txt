@@ -16,3 +16,5 @@ Conversely, eXtremeManagement depends on xm.booking, so if you change
 this package, please also run the eXtremeManagement tests.  If unsure,
 please contact the eXtremeManagement authors or mailing list.  See
 http://plone.org/products/extreme-management-tool/
+
+The code is hosted at https://github.com/zestsoftware/xm.booking
