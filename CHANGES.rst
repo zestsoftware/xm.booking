@@ -4,7 +4,8 @@ History of xm.booking
 2.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Moved to github.
+  [maurits]
 
 
 2.1 (2011-02-03)
