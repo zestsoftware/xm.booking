@@ -9,7 +9,7 @@ history = historyfile.read().strip()
 historyfile.close()
 
 setup(name='xm.booking',
-      version='2.2',
+      version='2.3.dev0',
       description="Bookings for eXtremeManagement",
       long_description=readme + "\n\n" + history,
       classifiers=[
