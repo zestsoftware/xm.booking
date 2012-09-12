@@ -1,29 +1,24 @@
 from setuptools import setup, find_packages
-import os.path
 
-versionfile = open(os.path.join('xm', 'booking', 'version.txt'))
-version = versionfile.read().strip()
-versionfile.close()
-
-readmefile = open(os.path.join('xm', 'booking', 'README.txt'))
+readmefile = open('README.txt')
 readme = readmefile.read().strip()
 readmefile.close()
 
-historyfile = open(os.path.join('xm', 'booking', 'HISTORY.txt'))
+historyfile = open('CHANGES.rst')
 history = historyfile.read().strip()
 historyfile.close()
 
 setup(name='xm.booking',
-      version=version,
+      version='2.2.dev0',
       description="Bookings for eXtremeManagement",
       long_description=readme + "\n\n" + history,
       classifiers=[
-        "Framework :: Plone",
-        "Framework :: Zope2",
-        "Framework :: Zope3",
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        ],
+          "Framework :: Plone",
+          "Framework :: Zope2",
+          "Framework :: Zope3",
+          "Programming Language :: Python",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          ],
       keywords='eXtremeManagement booking',
       author='Maurits van Rees',
       author_email='m.van.rees@zestsoftware.nl',
