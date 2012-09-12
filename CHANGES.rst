@@ -1,7 +1,7 @@
 History of xm.booking
 =====================
 
-2.2 (unreleased)
+2.2 (2012-09-12)
 ----------------
 
 - Moved to github.
